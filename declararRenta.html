@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="renta.js"></script>
+    <link rel="stylesheet" href="estilosRenta.css">
+    <title>Fundamentos WEB</title>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Fundamentos WEB</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="../public/index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../registro.html">Formulario de registro</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../declararRenta.html">Declarar renta</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Página 3</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Página 4</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+    <div class="container">
+        <br/>
+        <h3>Declararción de renta</h3>
+        <p>Según el calendario tributario de la DIAN entre el 12 de agosto y el 24 de octubre de 2024 vencen los plazos para que las personas naturales presenten su impuesto de renta del año gravable 2023 en Colombia. Para quienes declaran renta 2024 es muy importante realizar su declaración de renta y pago en la fecha que corresponde, para evitar posibles multas.</p>
+        <div class="container">
+            <form action="declararRenta.html">
+
+
+                <hr/>
+                <div class="row">
+                    <!--DATOS PERSONALES-->
+                    <div class="col-sm-6">
+                      <div class="card border-dark">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label">Ingresa tu nombre</label>
+                                <input type="text" class="form-control" id="nombre" aria-describedby="emailHelp" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="apellido" class="form-label">Ingresa tu apellido</label>
+                                <input type="text" class="form-control" id="apellido" aria-describedby="emailHelp" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="cedula" class="form-label">Ingresa tu cedula</label>
+                                <input type="text" class="form-control" id="cedula" aria-describedby="emailHelp">
+                            </div>
+                            <hr/>
+                              <!-- Sanciones por declarar fuera de los plazos -->
+                                <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    Sanciones por declarar fuera de los plazos
+                                </button>
+                        </div>
+                      </div>
+                    </div>
+                    <!--DATOS FINANCIEROS-->
+                    <div class="col-sm-6">
+                      <div class="card border-dark">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Ingrese su patrimonio :</label>
+                                <input type="text" class="form-control" id="patrimonio" required>
+                              </div>
+                              <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Ingrese sus ingresos :</label>
+                                <input type="text" class="form-control" id="ingresos" required>
+                              </div>
+                              <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Ingrese su consumo en tarjetas de crédito :</label>
+                                <input type="text" class="form-control" id="tarjeta" required>
+                              </div>
+                              <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Ingrese su consumo en compras  :</label>
+                                <input type="text" class="form-control" id="compras" required>
+                              </div>
+                              <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Ingrese sus gastos bancarios :</label>
+                                <input type="text" class="form-control" id="banco" required>
+                              </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>    
+                <hr/>    
+                <button type="button" class="btn btn-primary" onclick="imprimir()" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Verificar</button>
+            </form>
+            <br/>
+        </div>
+        
+    </div>
+ 
+
+  <!-- Resultado -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Resultado</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p id="salida"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sanciones por declarar fuera de los plazos -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Sanciones por declarar fuera de los plazos</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            Las personas naturales obligadas a declarar renta y la presenten fuera de las fechas establecidas serán objeto de sanciones establecidas por ley.
+            <ol>
+                <li>Si presentas tu declaración de renta después de tu fecha límite, tendrás que pagar una sanción por declarar tarde, conocida como sanción por extemporaneidad. Esta sanción equivale al 5% de tu impuesto a cargo y aumenta con cada mes o fracción de mes que pase entre la fecha límite de pago y la fecha en la cual se presente la declaración de renta.</li>
+                <li>La sanción mínima que se pagará en 2023 por las obligaciones incumplidas o mal cumplidas con la DIAN es de $424.000. Es decir que solo por declarar un día tarde, ya tendrías que asumir este valor, incluso si tu declaración de renta arroja un valor a pagar de cero.</li>
+                <li>Te será enviado un mensaje de advertencia, notificando que cuentas con un mes máximo para realizar el pago correspondiente al monto del impuesto, de no ser cumplido este plazo se le anexara un 10%, articulo 642 de la ley establecida.</li>
+                <li>De no declarar impuestos sobre la renta en ninguno de los casos anteriores se le sumara un 20% como sanción con base al valor de sus consignaciones bancarias o bien los ingresos brutos de la persona, esto se dará en relación al periodo en el que el mismo no declaró impuestos o en relación a los ingresos de la última declaración que ha realizado, artículo 643 de la ley establecida.</li>
+            </ol>
+            Para mayor información, puede dirigirte a la siguiente dirección:
+            <a href="https://www.tributi.com/fechas-declaracion-renta" target=”_blank”>Tributi</a>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr/>
+  <div class="container" id="footerRenta">
+    <p>Corporación Universitaria Minuto de Dios</p>
+    <p>Facultad de ingeniería</p>
+    <p>Tecnología en informática</p>
+    <p>Fundamentos de programación WEB</p>
+    <p>Autor : William Suárez Ortiz</p>
+  </div>
+    <br/>
+</body>
+</html>
