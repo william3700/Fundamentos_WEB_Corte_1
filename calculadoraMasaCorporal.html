@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../public/estilo/estilos_masa_corporal.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Fundamentos WEB</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="../public/index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../registro.html">Formulario de registro</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../declararRenta.html">Declarar renta</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../calculadoraMasaCorporal.html">Calculadora Masa corporal</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Página 4</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+      <br/>
+      <h3>Calculadora Indice Masa Corporal</h3>
+      <hr/>
+      <div class="card">
+        <div class="card-body">
+          <aside>
+            <h3>Sexo</h3>
+            <input type="radio" name="genero" value="Niño">
+            <label for="masculino">Niño</label><br>
+            <input type="radio" name="genero" value="Niña">
+            <label for="Femenino">Niña</label><br>
+            <hr/>
+            <label for="start">Fecha de nacimiento:</label>
+            <input type="date" id="start" name="trip-start" value="2024-03-16" min="1700-01-01" max="2050-12-31" />
+            <hr/>
+            <h3>Estatura (cm)</h3>
+            <input type="number" id="estatura">
+            <hr/>
+            <h3>Peso (kg)</h3>
+            <input type="number" id="peso">
+            <hr/>
+            <input type="button" class="btn btn-success" onclick="calcular()" value="Calcular" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        </aside>   
+        </div>
+      </div>
+    
+    </div>
+    
+
+    <br/><br/>
+<footer>
+    <div class="container" id="Footer1">
+        <p>Corporación Universitaria Minuto de Dios</p>
+        <p>Facultad de ingeniería</p>
+        <p>Tecnología en informática</p>
+        <p>Fundamentos de programación WEB</p>
+        <p>Autor : William Suárez Ortiz</p>
+    </div>
+</footer>
+
+<script src="calculoIc.js"></script>
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Reporte</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+             <h4>Índice de masa corporal</h4><br/>
+             <p id="salidaID"></p>
+             <h4>Estado</h4><br/>
+             <p id="conclusion"></p>
+
+             <div class="container">
+                <hr/>
+                <table class="table table-success table-bordered">
+                  <tr>
+                    <th>Fecha actual</th>
+                    <th>Fecha de nacimiento</th>
+                  </tr>
+                  <tr>
+                    <td><p id="fecha"></p></td>
+                    <td><p id="naci"></p></td>
+                  </tr>
+                </table>
+                <hr/>
+                Información registrada<br/><br/>
+                <table class="table table-success table-bordered">
+                  <tr>
+                    <th>Peso (kg)</th>
+                    <th>Estatura (cm)</th>
+                  </tr>
+                  <tr>
+                    <td><p id="peso1"></p></td>
+                    <td><p id="estatura1"></p></td>
+                  </tr>
+                </table>
+             </div>
+             <hr/>
+             <div class="card">
+              <div class="card-body">
+                <h4>La edad de la personas es  :</h4>
+                <p id="edades"></p>
+              </div>
+            </div>
+             
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

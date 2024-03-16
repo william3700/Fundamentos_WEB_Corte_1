@@ -27,7 +27,7 @@
                 <a class="nav-link" href="../declararRenta.html">Declarar renta</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Página 3</a>
+                <a class="nav-link" href="../calculadoraMasaCorporal.html">Calculadora Masa corporal</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Página 4</a>
@@ -50,9 +50,9 @@
         <tr>
             <td>Género</td>
             <td>
-                <input type="radio" name="Masculino" value="Masculino">
+                <input type="radio" name="genero" value="Masculino">
                 <label for="masculino">Masculino</label><br>
-                <input type="radio" name="Femenino" value="Femenino">
+                <input type="radio" name="genero" value="Femenino">
                 <label for="Femenino">Femenino</label><br>
             </td>
         </tr>
@@ -78,20 +78,21 @@
                 Marque todo lo que corresponda
             </td>
             <td>
-                <input type="checkbox" id="altura" name="altura" value="altura">
+                <input type="checkbox" id="altura" name="altura" value="más de 1.8 metros de altura">
                 <label for="altura"> más de 1.8 metros de altura</label><br>
-                <input type="checkbox" id="peso" name="peso" value="peso">
+                <input type="checkbox" id="peso" name="peso" value="más de 90.7 kilogramos">
                 <label for="peso"> más de 90.7 kilogramos</label><br>
             </td>
         </tr>
         <tr>
-            <td colspan="2" id="descripcion"><p>Describe tu habilidad atlética :</p><textarea rows="4" cols="50"></textarea></td>
+            <td colspan="2" id="descripcion"><p>Describe tu habilidad atlética :</p><textarea rows="4" cols="50" id="texto"></textarea></td>
         </tr>
         <tr>
-            <td id="enviar" colspan="2"><input type="submit" value="Enviar mi información"></td>
+            <td id="enviar" colspan="2"><input type="button" onclick="registro()" data-bs-toggle="modal" data-bs-target="#exampleModal" value="Enviar mi información"></td>
         </tr>
     </table>
     </div>
+    <p id="salida"></p>
     <hr/>
     <div class="container" id="footerRenta">
       <p>Corporación Universitaria Minuto de Dios</p>
@@ -101,5 +102,32 @@
       <p>Autor : William Suárez Ortiz</p>
     </div>
     <br>
+    <script src="public/js/app_registro.js"></script>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><p id="nombreRegistrado"></p></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          Género : <p id="generoRegistrado"></p>
+          Color de ojos : <p id="ojosRegistrado"></p>
+          altura : <p id="alturaRegistrado"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 </body>
 </html>
